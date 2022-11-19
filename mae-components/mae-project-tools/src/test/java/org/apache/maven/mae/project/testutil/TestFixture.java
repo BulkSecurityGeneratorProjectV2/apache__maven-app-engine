@@ -23,6 +23,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Enumeration;
@@ -351,7 +352,7 @@ public final class TestFixture
     public File createTempFile( final String prefix, final String suffix )
         throws IOException
     {
-        final File f = File.createTempFile( prefix, suffix );
+        final File f = Files.createTempFile( prefix, suffix ).toFile();
         tempFiles.add( f );
 
         return f;
